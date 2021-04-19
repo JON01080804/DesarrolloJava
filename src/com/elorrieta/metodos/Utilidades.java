@@ -81,8 +81,8 @@ public class Utilidades {
 	 * @return la suma de num1 y num2
 	 */
 	public static int suma(int num1, int num2) {
-		int resultado = num1 + num2;
-		return resultado;
+
+		return num1 + num2;
 	}
 
 	/**
@@ -93,13 +93,13 @@ public class Utilidades {
 	 * @return debe retornar el numero mayor
 	 */
 	public static int numeroMayor(int num1, int num2, int num3) {
-		int resultado1;
+
 		if (num1 > num2 && num1 > num3) {
-			return resultado1 = num1;
+			return num1;
 		} else if (num2 > num3) {
-			return resultado1 = num2;
+			return num2;
 		} else {
-			return resultado1 = num3;
+			return num3;
 		}
 	}
 
@@ -109,20 +109,18 @@ public class Utilidades {
 	 * @return decir si el numero es kapikua o no
 	 */
 	public static boolean isKapikua(int numero) {
-		boolean kapikua;
+
 		int resto;
 		int inverso = 0;
-		int numeroSinModificar = 0;
+		int numeroSinModificar = numero;
 		while (numero > 0) {
 
 			resto = numero % 10;
 			inverso = inverso * 10 + resto;
 			numero = numero / 10;
 		}
-		if (numeroSinModificar == inverso) {
-			return kapikua != false;
-		}
+		return numeroSinModificar == inverso;
 
-	}
+	}// iskapikua
 
 }
