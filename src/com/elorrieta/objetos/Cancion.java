@@ -6,23 +6,23 @@ public class Cancion {
 
 	// atributos
 
-	private String nombre1;
+	private String nombre;
 	private String grupo;
 	private int duracion;// segundos
 
 	public Cancion() {
 		super();
-		this.nombre1 = " ";
+		this.nombre = " ";
 		this.grupo = "anonima";
 		this.duracion = 0;
 	}
 
 	public String getNombre() {
-		return nombre1;
+		return nombre;
 	}
 
 	public void setNombre(String nombre) {
-		this.nombre1 = nombre;
+		this.nombre = nombre;
 	}
 
 	public String getGrupo() {
@@ -39,14 +39,14 @@ public class Cancion {
 
 	public void setDuracion(int duracion) throws Exception {
 		if (duracion > 400) {
-			throw new Exception("si la duracion es " + duracion + " La cancion es demasiado larga");
+			throw new Exception("si la duracion es superior a 400 segundos, la cancion es demasiado larga");
 		}
 		this.duracion = duracion;
 	}
 
 	@Override
 	public String toString() {
-		return "Cancion [nombre=" + nombre1 + ", grupo=" + grupo + ", duracion=" + duracion + "]";
+		return "Cancion [nombre=" + nombre + ", grupo=" + grupo + ", duracion=" + duracion + "]";
 	}
 
 }

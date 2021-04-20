@@ -55,6 +55,7 @@ public class CrearObjetosPokemon {
 		Scanner sc = new Scanner(System.in);
 
 		// Pedir datos por consola
+
 		String nombre = "";
 		float precio = 0;
 		int numero = 0;
@@ -105,7 +106,12 @@ public class CrearObjetosPokemon {
 		// crear el pokemon
 		Pokemon pCustom = new Pokemon();
 		pCustom.setNombre(nombre);
-		pCustom.setPrecio(precio);
+		try {
+			pCustom.setPrecio(precio);
+		} catch (Exception e) {
+
+			e.printStackTrace();
+		}
 		pCustom.setNumero(numero);
 		pCustom.setBrillante(isBrillante);
 
@@ -119,5 +125,4 @@ public class CrearObjetosPokemon {
 		sc.close();
 
 	}
-
 }

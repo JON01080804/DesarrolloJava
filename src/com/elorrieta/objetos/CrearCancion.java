@@ -10,31 +10,35 @@ public class CrearCancion {
 		System.out.println("----------------------------------------");
 
 		Scanner sc = new Scanner(System.in);
+		int duracion = 0;
+
+		Cancion tuCancion = new Cancion();
 
 		// Pedir datos por consola
 		System.out.println("Dime el nombre:");
-		String nombre1 = sc.nextLine();
+		String nombre = sc.nextLine();
+		tuCancion.setNombre(nombre);
 
 		System.out.println("Dime el nombre del grupo:");
 		String grupo = sc.nextLine();
+		tuCancion.setGrupo(grupo);
 
 		System.out.println("Duracion de la cancion:");
-		int duracion = Integer.parseInt(sc.nextLine());
-		if (duracion > 400) {
-			System.out.println("La cancion es muy larga");
-		} else {
-			System.out.println("La cancion tiene una duracion correcta");
-		}
+
+		boolean repetir = true;
+
+		do {
+			try {
+				duracion = Integer.parseInt(sc.nextLine());
+				tuCancion.setDuracion(duracion);
+				repetir = false;
+			} catch (Exception e) {
+				System.out.println("Vuelve a introducir la duracion ");
+
+			}
+		} while (repetir);
 
 		// tu cancion
-		Cancion tuCancion = new Cancion();
-		tuCancion.setNombre(nombre1);
-		tuCancion.setGrupo(grupo);
-		try {
-			tuCancion.setDuracion(duracion);
-		} catch (Exception e) {
-
-		}
 
 		sc.close();
 	}
