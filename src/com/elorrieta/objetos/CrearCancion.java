@@ -30,7 +30,11 @@ public class CrearCancion {
 		Cancion tuCancion = new Cancion();
 		tuCancion.setNombre(nombre1);
 		tuCancion.setGrupo(grupo);
-		tuCancion.setDuracion(duracion);
+		try {
+			tuCancion.setDuracion(duracion);
+		} catch (Exception e) {
+
+		}
 
 		sc.close();
 	}
