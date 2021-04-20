@@ -45,8 +45,19 @@ public class Pokemon {
 		}
 	}
 
-	public void setPrecio(float precio) {
-		this.precio = (precio >= 0) ? precio : 0; // OPERADOR TERNARIO
+	/**
+	 * Setea el precio
+	 * 
+	 * @param precio float en euros
+	 * @throws Exception si el precio es < 0
+	 */
+
+	public void setPrecio(float precio) throws Exception {
+//		this.precio = (precio >= 0) ? precio : 0; // OPERADOR TERNARIO
+		if (precio < 0) {
+			throw new Exception("el precio debe ser 0 o superior");
+		}
+		this.precio = precio;
 	}
 
 	public int getNumero() {

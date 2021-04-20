@@ -27,16 +27,24 @@ public class CrearEmpleados {
 			System.out.println("Tu sueldo es " + sueldo);
 		} else {
 			System.out.println("Sueldo empleado: ");
-			sueldo = Integer.parseInt(sc.nextLine());
 			do {
-				if (sueldo <= Empleado.SUELDO_MINIMO) {
-					System.out.println("Introduce de nuevo tu sueldo: ");
+				try {
 					sueldo = Integer.parseInt(sc.nextLine());
-				} else {
-					System.out.println("Sueldo correcto");
+				} catch (Exception e) {
+					System.out.println("Formato no correcto o sueldo inferior al sueldo minimo "
+							+ Empleado.SUELDO_MINIMO + " €, por favor intentalo de nuevo");
 				}
+			} while (sueldo <= 0 || sueldo <= Empleado.SUELDO_MINIMO);
 
-			} while (sueldo <= Empleado.SUELDO_MINIMO);
+//			do {
+//				if (sueldo <= Empleado.SUELDO_MINIMO) {
+//					System.out.println("Introduce de nuevo tu sueldo: ");
+//					sueldo = Integer.parseInt(sc.nextLine());
+//				} else {
+//					System.out.println("Sueldo correcto");
+//				}
+//
+//			} while (sueldo <= Empleado.SUELDO_MINIMO);
 		}
 		Empleado p1 = new Empleado();
 		p1.setNombre(nombre);
