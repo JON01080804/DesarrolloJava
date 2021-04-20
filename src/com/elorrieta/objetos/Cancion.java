@@ -1,5 +1,7 @@
 package com.elorrieta.objetos;
 
+// lanzar una excepcion si la cancion tiene mas de 400 segundos. 
+// Hacer aplicacion Java para crear cancion
 public class Cancion {
 
 	// atributos
