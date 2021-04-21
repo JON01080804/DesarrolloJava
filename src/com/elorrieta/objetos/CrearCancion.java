@@ -12,29 +12,30 @@ public class CrearCancion {
 		Scanner sc = new Scanner(System.in);
 		int duracion = 0;
 
-		Cancion tuCancion = new Cancion();
+		Cancion c = new Cancion();
 
 		// Pedir datos por consola
 		System.out.println("Dime el nombre:");
 		String nombre = sc.nextLine();
-		tuCancion.setNombre(nombre);
+		c.setNombre(nombre);
 
 		System.out.println("Dime el nombre del grupo:");
 		String grupo = sc.nextLine();
-		tuCancion.setGrupo(grupo);
+		c.setGrupo(grupo);
 
 		System.out.println("Duracion de la cancion:");
 
+		System.out.println("Duracion en minutos de la cancion ( no puede exceder " + Cancion.DURACION_MAXIMA + " min)");
 		boolean repetir = true;
-
 		do {
 			try {
 				duracion = Integer.parseInt(sc.nextLine());
-				tuCancion.setDuracion(duracion);
+				c.setDuracion(duracion);
 				repetir = false;
+			} catch (NumberFormatException e) {
+				System.out.println("duracion incorecta, debe ser un numero entero");
 			} catch (Exception e) {
-				System.out.println("Vuelve a introducir la duracion ");
-
+				System.out.println(e.getMessage());
 			}
 		} while (repetir);
 

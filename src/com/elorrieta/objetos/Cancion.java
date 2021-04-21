@@ -1,9 +1,13 @@
 package com.elorrieta.objetos;
 
 // lanzar una excepcion si la cancion tiene mas de 400 segundos. 
+
 // Hacer aplicacion Java para crear cancion
+
 public class Cancion {
 
+	public static final int DURACION_MAXIMA = 400;
+	public static final int DURACION_MIN = 0;
 	// atributos
 
 	private String nombre;
@@ -38,7 +42,7 @@ public class Cancion {
 	}
 
 	public void setDuracion(int duracion) throws Exception {
-		if (duracion > 400) {
+		if (duracion > DURACION_MAXIMA || duracion <= DURACION_MIN) {
 			throw new Exception("si la duracion es superior a 400 segundos, la cancion es demasiado larga");
 		}
 		this.duracion = duracion;
