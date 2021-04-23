@@ -38,11 +38,12 @@ public class Pokemon {
 	}
 
 	public float getPrecio() {
-		if (isBrillante) { // return(isBrillante) ? (precio+20) : precio; OPERADOR TERNARIO
-			return precio + 20;
-		} else {
-			return precio;
-		}
+		return (isBrillante) ? (precio + 20) : precio;
+//		if (isBrillante) { //  OPERADOR TERNARIO
+//			return precio + 20;
+//		} else {
+//			return precio;
+//		}
 	}
 
 	/**
@@ -78,7 +79,7 @@ public class Pokemon {
 
 	@Override
 	public String toString() {
-		return "Pokemon [nombre=" + nombre + ", precio=" + precio + ", numero=" + numero + ", isBrillante="
+		return "Pokemon [nombre=" + nombre + ", precio=" + getPrecio() + ", numero=" + numero + ", isBrillante="
 				+ isBrillante + "]";
 	}
 
