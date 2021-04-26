@@ -54,8 +54,10 @@ public class CancionesPiperrak {
 
 		System.out.println("Total segundos: " + totalSegundos);
 		System.out.println("Media segundos: " + totalSegundos / canciones.size());
-		System.out.println("Cancion mas Larga: " + cMasLarga.getNombre() + " " + cMasLarga.getDuracion() + " seg");
-		System.out.println("Cancion mas Corta: " + cMasCorta.getNombre() + " " + cMasCorta.getDuracion() + " seg");
+		System.out
+				.println("Cancion mas Larga: " + cMasLarga.getNombre() + " " + cMasLarga.getDuracionFormato() + " seg");
+		System.out
+				.println("Cancion mas Corta: " + cMasCorta.getNombre() + " " + cMasCorta.getDuracionFormato() + " seg");
 
 	}
 

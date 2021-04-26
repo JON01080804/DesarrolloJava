@@ -41,6 +41,19 @@ public class Cancion {
 		return duracion;
 	}
 
+	/**
+	 * formatea la duracion de segundos al siguiente formato, Minutos:Segundos
+	 * 
+	 * @param minutos
+	 * @param segundos
+	 * @return ejemplo 250 segundos lo formatea a String "4:10"
+	 */
+	public String getDuracionFormato() {
+		int minutos = this.duracion / 60;
+		int segundos = this.duracion % 60;
+		return minutos + ":" + segundos;
+	}
+
 	public void setDuracion(int minutos, int segundos) throws Exception {
 		int total = (minutos * 60) + segundos;
 		setDuracion(total);
