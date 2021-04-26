@@ -16,7 +16,7 @@ public class EliminarPersona {
 
 			// TODO pedir datos por consola
 
-			int id = 20;
+			int id = 56;
 
 			// sustituimos las '?' de la SQL por las variables
 			pst.setInt(1, id);
