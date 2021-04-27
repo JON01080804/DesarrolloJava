@@ -16,7 +16,7 @@ public class ListadoPokemon {
 
 		) {
 
-			while (rs.next()) {
+			while (rs.next()) {// rs es el conjunto de datos que se obtiene de
 
 				String nombre = rs.getString("nombre");
 				int id = rs.getInt("id");

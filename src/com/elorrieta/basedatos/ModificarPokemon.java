@@ -23,12 +23,10 @@ public class ModificarPokemon {
 			System.out.println("Introduce el nuevo precio: ");
 			float precio = Float.parseFloat(sc.nextLine());
 			pst.setFloat(1, precio);
-			
-			try
-			
-				System.out.println("Introduce el nuevo codigo: ");
-				String numero = sc.nextLine();
-				pst.setString(2, numero);
+
+			System.out.println("Introduce el nuevo codigo: ");
+			String numero = sc.nextLine();
+			pst.setString(2, numero);
 
 //			// sustituimos las '?' de la SQL por las variables
 //			pst.setDouble(1, price);
