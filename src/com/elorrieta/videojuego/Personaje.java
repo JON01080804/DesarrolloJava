@@ -1,24 +1,24 @@
 package com.elorrieta.videojuego;
 
-import com.elorrieta.objetos.Cantarin;
+public class Personaje {
 
-public class Personaje implements Cantarin {
-
-	String nombre;
-	float energia;
+	private String nombre;
+	private int energia;
 
 	public Personaje() {
-
+		super();
+		this.nombre = " ";
+		this.energia = 0;
 	}
 
 	public Personaje(String nombre) {
-		super();
+		this();
 		this.nombre = nombre;
 
 	}
 
-	public Personaje(String nombre, float energia) {
-		super();
+	public Personaje(String nombre, int energia) {
+		this();
 		this.nombre = nombre;
 		this.energia = energia;
 	}
@@ -35,7 +35,7 @@ public class Personaje implements Cantarin {
 		return energia;
 	}
 
-	public void setEnergia(float energia) {
+	public void setEnergia(int energia) {
 		this.energia = energia;
 	}
 
@@ -44,10 +44,13 @@ public class Personaje implements Cantarin {
 		return "Personaje [nombre=" + nombre + ", energia=" + energia + "]";
 	}
 
-	@Override
-	public void cantar() {
-		System.out.println("Me llamo :" + this.nombre + " y mi energia es: " + this.energia);
+	public void alimentarse(int incremento) {
+		this.energia += incremento;
 
 	}
 
+	public void consumir(int incremento) {
+		this.energia -= incremento;
+
+	}
 }

@@ -31,7 +31,7 @@ public class Animal implements Cantarin {
 
 	// si este metodo fueral FINAL, no lo pueden sobreescribir los hijos
 	@Override
-	public void cantar() {
+	public void cantarin() {
 		System.out.println("Soy el Animal " + this.nombre + " y estoy cantando");
 
 	}

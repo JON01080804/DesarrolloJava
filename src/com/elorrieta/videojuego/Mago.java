@@ -2,10 +2,12 @@ package com.elorrieta.videojuego;
 
 public class Mago extends Personaje {
 
-	String poder;
+	public static final int ENERGIA_INICIAL = 100;
 
-	public Mago(String nombre, float energia, String poder) {
-		super(nombre, energia);
+	private String poder;
+
+	public Mago(String nombre, String poder) {
+		super(nombre, ENERGIA_INICIAL);
 		this.poder = poder;
 	}
 
@@ -17,9 +19,20 @@ public class Mago extends Personaje {
 		this.poder = poder;
 	}
 
+	/**
+	 * disminuye en 2 unidades el nivel propio de energía y que retorna el poder del
+	 * mago.
+	 * 
+	 * @return
+	 */
+	public String encantar() {
+		setEnergia((int) (getEnergia() - 2));
+		return poder + " " + getEnergia();
+	}
+
 	@Override
 	public String toString() {
-		return "Mago [poder=" + poder + ", nombre=" + nombre + ", energia=" + energia + "]";
+		return "Mago [poder=" + poder + ", Nombre " + getNombre() + ", Energia " + getEnergia() + "]";
 	}
 
 }

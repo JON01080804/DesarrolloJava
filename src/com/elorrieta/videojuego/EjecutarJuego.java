@@ -4,13 +4,19 @@ public class EjecutarJuego {
 
 	public static void main(String[] args) {
 
-		Guerrero g1 = new Guerrero("Adam", 100, "Espada");
-		System.out.println(g1);
-		g1.cantar();
+		Guerrero g = new Guerrero("Conan el Barbaro", 350, "espada de doble mano");
+		System.out.println("Creado Guerrero");
+		System.out.println(g);// tambien puede ser 'System.out.println(g.toString());'
+		System.out.println("combate con energia de 100 y arma " + g.getArma());
+		g.combatir(100);
+		System.out.println(g.toString());
 
-		Mago m1 = new Mago("Merlin", 100, "Invisible");
-//		System.out.println(m1);
-		
+		Mago m = new Mago("Merlin", "Bola de fuego");
+		System.out.println("Mago creado");
+		System.out.println(m);
+		System.out.println("Lanza un encantamiento " + m.getPoder());
+		m.encantar();
+		System.out.println(m);
 
 	}
 
