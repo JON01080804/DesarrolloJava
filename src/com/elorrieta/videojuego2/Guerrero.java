@@ -23,6 +23,7 @@ public class Guerrero {
 		this.inteligencia = 0;
 		this.agilidad = 0;
 		this.fuerza = 0;
+
 	}
 
 	public Guerrero(double altura, String colorDePiel, int vida, int inteligencia, int agilidad, int fuerza) {
@@ -99,12 +100,15 @@ public class Guerrero {
 	}
 
 	public void setFuerza(int fuerzaOtorgada) {
+
+		this.fuerza = fuerzaOtorgada;
 		if (fuerzaOtorgada <= FUERZA_MAXIMA && fuerzaOtorgada >= FUERZA_MINIMA) {
-			this.fuerza = fuerzaOtorgada;
+
 			System.out.println("Fuerza correcta");
 		} else {
 			System.out.println("Fuerza no es correcta");
 		}
+
 	}
 
 	public void atacar() {

@@ -6,7 +6,18 @@ public class Orco extends Guerrero {
 
 	public Orco() {
 		super();
-		this.arma = arma;
+		this.arma = " ";
+	}
+
+	public Orco(double altura, String colorDePiel, int vida, int inteligencia, int agilidad, int fuerza) {
+		this();
+		setAltura(altura);
+		setColorDePiel(colorDePiel);
+		setVida(vida);
+		setInteligencia(inteligencia);
+		setAgilidad(agilidad);
+		setFuerza(fuerza);
+
 	}
 
 	public String getArma() {
@@ -24,9 +35,9 @@ public class Orco extends Guerrero {
 
 	@Override
 	public String toString() {
-		return "Orco [arma=" + arma + ", getAltura()=" + getAltura() + ", getColorDePiel()=" + getColorDePiel()
-				+ ", getVida()=" + getVida() + ", getInteligencia()=" + getInteligencia() + ", getAgilidad()="
-				+ getAgilidad() + ", getFuerza()=" + getFuerza() + "]";
+		return "Orco [arma=" + arma + ", Altura= " + getAltura() + ", ColorDePiel= " + getColorDePiel() + ", Vida= "
+				+ getVida() + ", getInteligencia= " + getInteligencia() + ", getAgilidad= " + getAgilidad()
+				+ ", getFuerza= " + getFuerza() + "]";
 	}
 
 }
