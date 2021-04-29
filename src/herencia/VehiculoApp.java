@@ -1,8 +1,12 @@
 package herencia;
 
+import java.util.ArrayList;
+
 public class VehiculoApp {
 
 	public static void main(String[] args) {
+
+		ArrayList<Vehiculo> stock = new ArrayList<Vehiculo>();
 
 		System.out.println("------------- v1 -----------------");
 		Vehiculo v1 = new Vehiculo();
@@ -39,6 +43,33 @@ public class VehiculoApp {
 		a1.getAlas();
 		a1.arrancar();
 		System.out.println(a1);
+
+		stock.add(a1);
+		stock.add(c1);
+		stock.add(cg1);
+
+		int contCo = 0;
+		int contAv = 0;
+
+		for (Vehiculo vehiculoIterador : stock) {
+			if (vehiculoIterador instanceof Avion) {
+				System.out.println("este vehiculo es un Avion");
+				// castear el objeto a su Clase Hija
+				Avion avion = (Avion) vehiculoIterador;
+				// podemos acceder a los metodos de la clase Hija
+				avion.getAlas();
+				contAv++;
+			}
+
+			if (vehiculoIterador instanceof Coche) {
+				System.out.println("este vehiculo es un coche");
+				((Coche) vehiculoIterador).isItv();
+				contCo++;
+			}
+
+		}
+		System.out.println("Tengo " + contCo + " coches");
+		System.out.println("Tengo " + contAv + " aviones");
 
 	}
 
