@@ -1,14 +1,14 @@
 package herencia;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 
-public class MenuConcesionario {
+public class MenuConcesionarioHashMap {
 
 	// variables global para todos los metodos de esta clase
 	private static Scanner sc = new Scanner(System.in);
 	private static String opcion = "";
-	private static ArrayList<Vehiculo> stock = new ArrayList<Vehiculo>();
+	private static HashMap<String, Vehiculo> stock = new HashMap<String, Vehiculo>();
 
 	public static void main(String[] args) {
 		System.out.println("Bienvenido");
@@ -65,28 +65,19 @@ public class MenuConcesionario {
 		System.out.println("Dime la Matricula:");
 		String matricula = sc.nextLine();
 
-		// TODO crear funcion para reutilzarlo
-		boolean encontrado = false;
-		for (Vehiculo v : stock) {
+		Vehiculo v = stock.get(matricula);
 
-			if (matricula.equalsIgnoreCase(v.getMatricula())) {
-				encontrado = true;
-				stock.remove(v);
-				System.out.println("Vehiculo enviado al desguace");
-				break;
-			}
-
-		} // for
-
-		if (!encontrado) {
-			System.out.println("Vehiculo no encontrado");
+		if (v == null) {
+			System.out.println("No existe");
+		} else {
+			stock.remove(matricula);
+			System.out.println("Vehiculo dado de baja");
 		}
 
 	}// darDeBaja
 
 	private static void modificar() {
 
-		Vehiculo vm = new Vehiculo(); // VehiculoModificar
 		boolean encontrado = false;
 
 		System.out.println("Modificar");
@@ -94,17 +85,9 @@ public class MenuConcesionario {
 		System.out.println("Dime la Matricula:");
 		String matricula = sc.nextLine();
 
-		// TODO crear funcion para reutilzarlo
-		// buscar por matricula
-		for (Vehiculo v : stock) {
-			if (matricula.equalsIgnoreCase(v.getMatricula())) {
-				encontrado = true;
-				vm = v;
-				break;
-			}
-		}
+		Vehiculo vm = stock.get(matricula);
 
-		if (!encontrado) {
+		if (vm == null) {
 			System.out.println("Vehiculo no encontrado");
 
 		} else {
@@ -134,12 +117,8 @@ public class MenuConcesionario {
 
 	private static void cargarVehiculos() {
 
-		stock.add(new Vehiculo("134 CMS", "rojo"));
-
-		Vehiculo v = new Vehiculo();
-		v.setColor("negro");
-		v.setMatricula("2365 JKL");
-		stock.add(v);
+		stock.put("134 CMS", new Vehiculo("134 CMS", "rojo")); // en ArrayList -> add(Value)
+		stock.put("2365 JKL", new Vehiculo("2365 JKL", "negro"));
 
 	}
 
@@ -174,8 +153,8 @@ public class MenuConcesionario {
 		// crear obejto con esos datos
 		Vehiculo v = new Vehiculo(matricula, color, asientos, ruedas);
 
-		// añadirlo en la coleccion 'stock'
-		stock.add(v);
+		// añadirlo en la coleccion 'stock' ( Key, Value)
+		stock.put(matricula, v);
 
 	}
 
@@ -183,7 +162,10 @@ public class MenuConcesionario {
 		System.out.println("--------------------------------------");
 		System.out.println(" Listado Vehiculos");
 		System.out.println("--------------------------------------");
-		for (Vehiculo vehiculo : stock) {
+
+		// stock.keySet(); me retorna todas las matriculas
+
+		for (Vehiculo vehiculo : stock.values()) {
 			System.out.println(vehiculo);
 		}
 		System.out.println("");

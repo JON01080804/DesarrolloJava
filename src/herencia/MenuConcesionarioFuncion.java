@@ -3,7 +3,7 @@ package herencia;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class MenuConcesionario {
+public class MenuConcesionarioFuncion {
 
 	// variables global para todos los metodos de esta clase
 	private static Scanner sc = new Scanner(System.in);
@@ -65,46 +65,26 @@ public class MenuConcesionario {
 		System.out.println("Dime la Matricula:");
 		String matricula = sc.nextLine();
 
-		// TODO crear funcion para reutilzarlo
-		boolean encontrado = false;
-		for (Vehiculo v : stock) {
-
-			if (matricula.equalsIgnoreCase(v.getMatricula())) {
-				encontrado = true;
-				stock.remove(v);
-				System.out.println("Vehiculo enviado al desguace");
-				break;
-			}
-
-		} // for
-
-		if (!encontrado) {
-			System.out.println("Vehiculo no encontrado");
+		Vehiculo vBuscado = buscarPorMatricula(matricula);
+		if (vBuscado == null) {
+			System.out.println("Lo sentimos pero no existe");
+		} else {
+			stock.remove(vBuscado);
+			System.out.println("Vehiculo enviado al desguace");
 		}
 
 	}// darDeBaja
 
 	private static void modificar() {
 
-		Vehiculo vm = new Vehiculo(); // VehiculoModificar
-		boolean encontrado = false;
-
 		System.out.println("Modificar");
 		System.out.println("-----------------------------");
 		System.out.println("Dime la Matricula:");
 		String matricula = sc.nextLine();
 
-		// TODO crear funcion para reutilzarlo
-		// buscar por matricula
-		for (Vehiculo v : stock) {
-			if (matricula.equalsIgnoreCase(v.getMatricula())) {
-				encontrado = true;
-				vm = v;
-				break;
-			}
-		}
+		Vehiculo vm = buscarPorMatricula(matricula);
 
-		if (!encontrado) {
+		if (vm == null) {
 			System.out.println("Vehiculo no encontrado");
 
 		} else {
@@ -204,6 +184,23 @@ public class MenuConcesionario {
 		System.out.println("4. modificar");
 		System.out.println("------------------");
 		System.out.println("S- salir");
+	}
+
+	/**
+	 * Busca un Vehiculo por su matricula en el array 'stock'
+	 * 
+	 * @param matricula String matricula a buscar
+	 * @return Vehiculo con datos si encuentra, null si no lo encuentra
+	 */
+	private static Vehiculo buscarPorMatricula(String matricula) {
+		Vehiculo v = null;
+		for (Vehiculo vi : stock) {
+			if (matricula.equalsIgnoreCase(vi.getMatricula())) {
+				v = vi;
+				break;
+			}
+		}
+		return v;
 	}
 
 }
