@@ -57,6 +57,9 @@ public class MenuConcesionario {
 		System.out.println("Termina programa");
 	}// main
 
+	/**
+	 * DAR DE BAJA
+	 */
 	private static void darDeBaja() {
 		System.out.println("Dar de Baja");
 		System.out.println("-----------------------------");
@@ -84,6 +87,9 @@ public class MenuConcesionario {
 
 	}// darDeBaja
 
+	/**
+	 * MODIFICAR
+	 */
 	private static void modificar() {
 
 		Vehiculo vm = new Vehiculo(); // VehiculoModificar
@@ -132,6 +138,9 @@ public class MenuConcesionario {
 
 	}// modificar
 
+	/**
+	 * CARGAR VEHICULOS
+	 */
 	private static void cargarVehiculos() {
 
 		stock.add(new Vehiculo("134 CMS", "rojo"));
@@ -143,6 +152,9 @@ public class MenuConcesionario {
 
 	}
 
+	/**
+	 * DAR DE ALTA
+	 */
 	private static void darDeAlta() {
 
 		System.out.println("Datos para el nuevo vehiculo");
@@ -179,6 +191,9 @@ public class MenuConcesionario {
 
 	}
 
+	/**
+	 * LISTAR
+	 */
 	private static void listar() {
 		System.out.println("--------------------------------------");
 		System.out.println(" Listado Vehiculos");
@@ -191,11 +206,18 @@ public class MenuConcesionario {
 
 	}
 
+	/**
+	 * LEER OPCION
+	 */
 	private static void leerOpcion() {
 		System.out.println("Elije una opcion del menu:");
 		opcion = sc.nextLine();
 
 	}
+
+	/**
+	 * MENU
+	 */
 
 	private static void menu() {
 		System.out.println("1. Listar");
