@@ -87,8 +87,8 @@ public class Alumno {
 	 * 
 	 * @param asignaturas
 	 */
-	public void setAsignaturas(ArrayList<Asignatura> lista) {
-		this.asignaturas = lista;
+	public void setAsignaturas(ArrayList<Asignatura> asignaturas) {
+		this.asignaturas = asignaturas;
 	}
 
 	/**
@@ -96,8 +96,8 @@ public class Alumno {
 	 * 
 	 * @param asignatura
 	 */
-	public void setAsignatura(Asignatura asig) {
-		this.asignaturas.add(asig);
+	public void setAsignatura(Asignatura asignatura) {
+		this.asignaturas.add(asignatura);
 	}
 
 	@Override

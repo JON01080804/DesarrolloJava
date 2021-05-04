@@ -52,8 +52,9 @@ public class MenuAlumnado {
 	private static void darDeAlta() {
 
 		int edad = 16;
-
 		boolean isEnfermo = false;
+		boolean error = true;
+		String repetir = "";
 		Alumno a = new Alumno();
 
 		System.out.println("Por favor introduzca los datos:");
@@ -86,30 +87,45 @@ public class MenuAlumnado {
 		String respuesta = sc.nextLine();
 		if ("s".equalsIgnoreCase(respuesta) || "si".equalsIgnoreCase(respuesta)) {
 			isEnfermo = true;
+
 		}
 		a.setEnfermo(isEnfermo);
 
 		// Preguntar por Asignaturas
-		// TODO hacer bucle para pedir mas de una Asignatura
-		// TODO gestionar Excepciones de parseo
-
 		System.out.println("Asignaturas en las que esta matriculado");
 		System.out.println("---------------------------------------");
-		String respasig;
-		do {
 
+		do {
+			Asignatura asigNueva = new Asignatura();
+
+			// Nombre Asigntura
 			System.out.println("Dime el nombre:");
 			String nomAsig = sc.nextLine();
+			asigNueva.setNombre(nomAsig);
 
-			System.out.println("Dime la nota [0-10]:");
-			float nota = Float.parseFloat(sc.nextLine());
+			// Nota Asigantura
+			error = true;
+			do {
+				try {
+					System.out.println("Dime la nota [0-10]:");
+					float nota = Float.parseFloat(sc.nextLine());
+					asigNueva.setNota(nota);
+					error = false;
+				} catch (AsignaturaException e) {
+					System.out.println(e.getMessage());
 
-			Asignatura asigMatriculado = new Asignatura(nomAsig, nota);
-			a.setAsignatura(asigMatriculado);
+				} catch (Exception e) {
+					System.out.println("Nota incorrecta, por favor usa numeros");
+				}
+			} while (error);
 
-			System.out.println("¿Quieres introducir mas asignaturas? S-si / N-no");
-			respasig = sc.nextLine();
-		} while ("s".equalsIgnoreCase(respasig) || "si".equalsIgnoreCase(respasig));
+			// Guardar Asigntura en el Alumno
+			a.setAsignatura(asigNueva);
+
+			System.out.println("¿ Quieres añadir una nueva Asignatura ? Si o No");
+			repetir = sc.nextLine();
+
+		} while ("si".equalsIgnoreCase(repetir) || "s".equalsIgnoreCase(repetir));
 
 		// añadirlo en la coleccion 'stock'
 		clase.add(a);
@@ -158,22 +174,15 @@ public class MenuAlumnado {
 		Asignatura a2 = new Asignatura("Lengua Castellana", 7.5f);
 		Asignatura a3 = new Asignatura("Educacion Física", 1);
 
-		ArrayList<Asignatura> cursadas = new ArrayList<Asignatura>();
-		cursadas.add(a1);
-		cursadas.add(a2);
-		cursadas.add(a3);
-
 		Alumno a = new Alumno();
 		a.setNombre("Martin");
 		a.setApellidos("Sanchez Gutierrez");
 		a.setEdad(25);
 		a.setEnfermo(false);
 		// asignaturas
-//		a.setAsignatura(a1);
-//		a.setAsignatura(a2);
-//		a.setAsignatura(a3);
-		a.setAsignaturas(cursadas);
-
+		a.setAsignatura(a1);
+		a.setAsignatura(a2);
+		a.setAsignatura(a3);
 		clase.add(a);
 
 		Asignatura a12 = new Asignatura("Matematicas", 9);
@@ -187,15 +196,11 @@ public class MenuAlumnado {
 		b.setAsignatura(a22);
 		clase.add(b);
 
-		Asignatura a31 = new Asignatura("Java", 6.5f);
-		Asignatura a32 = new Asignatura("HTML", 7.5f);
 		Alumno c = new Alumno();
 		c.setNombre("Pepe");
 		c.setApellidos("Sanchez Fuente");
 		c.setEdad(45);
 		c.setEnfermo(false);
-		c.setAsignatura(a31);
-		c.setAsignatura(a32);
 
 		clase.add(c);
 

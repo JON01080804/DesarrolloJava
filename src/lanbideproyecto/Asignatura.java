@@ -2,6 +2,9 @@ package lanbideproyecto;
 
 public class Asignatura {
 
+	public static final float NOTA_MIN = 0;
+	public static final float NOTA_MAX = 10f;
+
 	private String nombre;
 	private float nota;
 
@@ -11,7 +14,7 @@ public class Asignatura {
 		this.nota = 0;
 	}
 
-	public Asignatura(String nombre, float nota) throws Exception {
+	public Asignatura(String nombre, float nota) throws AsignaturaException {
 		this();
 		this.nombre = nombre;
 		// this.nota = nota;
@@ -30,11 +33,11 @@ public class Asignatura {
 		return nota;
 	}
 
-	public void setNota(float nota) throws Exception {
-		if (nota < 0 || nota > 10) {
-throw new Exceptio
-			this.nota = nota;
-		
+	public void setNota(float nota) throws AsignaturaException {
+		if (nota < NOTA_MIN || nota > NOTA_MAX) {
+			throw new AsignaturaException(String.format("La nota debe ser entre %s y %s", NOTA_MIN, NOTA_MAX));
+		}
+		this.nota = nota;
 	}
 
 	@Override
